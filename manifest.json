@@ -4,6 +4,9 @@
   "manifest_version": 2,
   "description": 
             "Extension for grouping urls and opening them together.",
+  "permissions": [
+			"storage"
+  ],
   "chrome_url_overrides" : {
       "newtab": "template.html"
     }
