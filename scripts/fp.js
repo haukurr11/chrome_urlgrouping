@@ -77,7 +77,7 @@ function openGroup(groupname) {
         }
         else {
            for(var item in urls) {
-              linklist.url.push(urls[item].address);
+              linklist.url.push(urls[item].url);
            }
            chrome.windows.create(linklist);
         }
