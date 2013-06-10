@@ -24,6 +24,15 @@
     $('.btn-toolbar').empty();
     chrome.storage.sync.get('link_db', function(result){
       var link_db = result.link_db;
+      if(!link_db) {
+
+            chrome.storage.sync.set({'link_db': {} },function() 
+            {
+                refreshLinks(); 
+            });
+         return;
+      }
+
      for(var name in link_db) {
          var div = $('<div class="btn-group"></div>');
          var grp_btn = $('<button class="btn-large btn-inverse">' + name + '</button>');
@@ -128,7 +137,6 @@ function addLinkToGroup(groupname,title,url) {
            result.link_db[groupname].push(link);
            chrome.storage.sync.set({'link_db': result.link_db},function() {
                 refreshLinks(); 
-                console.log("hello");
            });
         }
     });
