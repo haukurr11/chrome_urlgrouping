@@ -52,17 +52,16 @@
          div.append(list);
          $('.btn-toolbar').append(div);
 
-        $(".remove").each( function() {
-                     $(this).click( function() {
+     }
+
+        $("a.remove").click( function() {
                         var address = $(this).attr("url");
                         var group = $(this).attr("group");
                         if(window.confirm("Are you sure you want to remove " + address))
                            {
                               removeLinkFromGroup(group,address);
                            }
-                       });
              });
-     }
     });
 }
 
